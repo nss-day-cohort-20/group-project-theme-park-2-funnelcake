@@ -50,9 +50,12 @@ Create your own park areas and attractions.
 * CSS Framework - your choice
 * SASS
 
-
-
-
-Review `.json` file. Insert a name for your theme park.
-Create Firebase account/database and upload `.json` to use as data.
+### How to Start
+* Plan
+* Plan some more.
+* Plan again.
+* Review `.json` file. Insert a name for your theme park.
+* Create Firebase account/database and upload `.json` to use as data.
+* Be sure to set your Firebase rules.
+* 
 
