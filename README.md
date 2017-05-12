@@ -6,7 +6,8 @@ As a team you will create a interactive map of a theme park. The park will inclu
 * Display park info in a header.
     - List all attractions based on type with drop down selector (all restaurants, all shows, etc.).
 * Show each area in a box (MVP).
-* Click on box will display details about the area. 
+* Each area should have a color theme.
+* Click on box will display details about the area.
 * Each area will include four types of attractions (Rides, Restaurants, Characters, etc.)
 * Each type will have two different attractions. For example:
     - Rides: Ride Number 1 and Ride Number 2
@@ -14,7 +15,9 @@ As a team you will create a interactive map of a theme park. The park will inclu
     - Characters: Hanna Banana and Greg the Giant
     - Shops: The Horse Hole and Whole Horse with Grains
 * Each area will have a minimum of 8 attractions.
-* Create a footer for page displaying copyright information and Social Media.
+* Click on an attraction and display the description.
+* Display the times if an attraction has a time value.
+* Create a footer for page displaying copyright information, location with a link to google maps, and park hours.
 
 ### Time Ticker
 Some attractions and shows only occur at specific times. Allow the user to select a starting time and display related events. The user should be able to click a button and cycle through 30 minute increments and view events occurring within that time window. This should only cycle through the hours the park is open. Sort items by attraction type. (All character meets, all concerts, etc.)
@@ -38,7 +41,6 @@ Create your own park areas and attractions.
 * Data should be pulled from Firebase based on collections. Pull only what you need.
 * Each area should have a separate js file with getters and setters.
 * All Firebase calls should be in `attractory.js` file (aka attraction factory).
-* 
 
 ### Technology Requirements
 * Browserify
@@ -57,5 +59,3 @@ Create your own park areas and attractions.
 * Review `.json` file. Insert a name for your theme park.
 * Create Firebase account/database and upload `.json` to use as data.
 * Be sure to set your Firebase rules.
-* 
-
