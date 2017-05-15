@@ -166,7 +166,7 @@
             "id": 16,
             "name": "Meet Disney Friends in Town Square",
             "description": "Some of your favorite Disney friends are here to greet you in the heart of Main Street, U.S.A",
-            "times": [],
+            "times": ["9:00AM", "4:00PM"],
             "type_id": 5,
             "area_id": 1
         },
@@ -174,7 +174,7 @@
             "id": 17,
             "name": "Meet Mickey at Town Square Theater",
             "description": "Mickey Mouse is in his rehearsal room, ready to meet his biggest fans. Discover props and posters from Mickey’s magical career in the theater and maybe even spot a disappearing dove or a rabbit coming out of a hat. The greatest magic of all happens when you get a hug from Mickey Mouse himself.",
-            "times": [],
+            "times": ["9:40AM", "12:20PM", "4:30PM"],
             "type_id": 5,
             "area_id": 1
         },
@@ -182,7 +182,7 @@
             "id": 18,
             "name": "Meet Tinker Bell at Town Square Theater",
             "description": "Step through the magical portal to join Tinker Bell as she showcases a collection of her treasures from the mainland. After spending time with a fairy, you too may wish you could fly away toward the second star to the right!",
-            "times": [],
+            "times": ["10:00AM", "1:00PM", "4:30PM", "7:00PM"],
             "type_id": 5,
             "area_id": 1
         },
@@ -309,7 +309,7 @@
             "id": 36,
             "name": "Meet Characters from Aladdin in Adventureland",
             "description": "Encounter a whole new world of adventure as you enter into the marketplace. Princess Jasmine and Aladdin are pleased to make your acquaintance and weave stories of Agrabah under the shade of a colorful awning. Perhaps you’ll even share a tale with them of your adventures in this most magical of kingdoms.",
-            "times": [],
+            "times": ["10:20AM", "2:20PM", "6:30PM"],
             "type_id": 5,
             "area_id": 2
         },
@@ -662,7 +662,7 @@
             "id": 86,
             "name": "Meet Peter Pan in Fantasyland",
             "description": "Spend some time with Peter Pan before he returns to Never Land. Peter may tell tales of his exploits with Tinker Bell, the Lost Boys or Captain Hook. He’d love to hear one of your stories, too.",
-            "times": [],
+            "times": ["11:00AM", "1:00PM", "5:00PM", "8:00PM"],
             "type_id": 5,
             "area_id": 5
         },
@@ -670,7 +670,7 @@
             "id": 87,
             "name": "Meet Cinderella and Elena at Princess Fairytale Hall",
             "description": "Enjoy a dazzling encounter as you’re greeted by Cinderella and her princess friend Elena in an enchanting royal setting. Cinderella elegantly welcomes one and all into a “happily ever after” filled with family, friends and fun—and that includes you! As Elena readies herself to rule the enchanted kingdom of Avalor, she creates her own hero’s journey—stopping along the way to meet Disney Princesses and Guests at Walt Disney World Resort.",
-            "times": [],
+            "times": ["10:15AM", "2:35PM", "4:40PM", "7:00PM"],
             "type_id": 5,
             "area_id": 5
         },
@@ -678,7 +678,7 @@
             "id": 88,
             "name": "Meet Rapunzel and Tiana at Princess Fairytale Hall",
             "description": "Let your hair down for a magical meeting with Rapunzel. She is very excited to meet you and share stories of her many adventures… and maybe even hear about some of yours too! Swap a special story with Princess Tiana and make a wish upon the evening star. Having recently fulfilled her lifelong ambition of opening her very own restaurant—not to mention spending time as a frog—Tiana is delighted to make your acquaintance and discover a new friend, especially one whose dreams are as big as her own.",
-            "times": [],
+            "times": ["9:45AM", "12:15PM", "4:40PM", "7:20PM"],
             "type_id": 5,
             "area_id": 5
         },
@@ -686,7 +686,7 @@
             "id": 89,
             "name": "Meet Gaston near His Tavern",
             "description": "The townsfolk at Gaston’s Tavern are awed and inspired by the handsome ham. He is happy to provide his admirers with autographs, pictures and seemingly endless tales about himself.",
-            "times": [],
+            "times": ["11:10AM", "2:10PM", "5:45PM", "9:00PM"],
             "type_id": 5,
             "area_id": 5
         },
@@ -702,7 +702,7 @@
             "id": 91,
             "name": "Meet Tigger and Friends near The Many Adventures of Winnie the Pooh",
             "description": "Spend time with friends in a shady place in the Hundred Acre Wood. Winnie the Pooh and Tigger always love being with new friends and old, sharing hugs and maybe even a smackerel of honey.",
-            "times": [],
+            "times": ["9:50AM", "10:20AM", "11:55pM", "1:25PM", "3:00PM", "6:15PM"],
             "type_id": 5,
             "area_id": 5
         },
@@ -710,7 +710,7 @@
             "id": 92,
             "name": "Meet Alice in Wonderland at the Mad Tea Party",
             "description": "You’ll feel as though you’ve followed Alice down the rabbit hole when you encounter these familiar faces. Of course, there’s no telling who you might find at this peculiar party—curiouser and curiouser.",
-            "times": [],
+            "times": ["9:30AM", "10:20AM", "11:55AM", "1:25PM", "2:00PM", "4:15PM", "4:45PM"],
             "type_id": 5,
             "area_id": 5
         },
@@ -718,7 +718,7 @@
             "id": 93,
             "name": "Meet Merida at Fairytale Garden",
             "description": "Join Merida and her clan in an engaging “play and greet” experience. Inside Fairytale Garden, you can practice archery, color your own “tapestry” of Merida as well as her faithful horse, Angus, and spend some time with Merida herself! ",
-            "times": [],
+            "times": ["9:40AM", "11:40AM", "1:55PM", "4:15PM", "4:45PM", "7:00PM"],
             "type_id": 5,
             "area_id": 5
         },
@@ -894,7 +894,7 @@
             "id": 118,
             "name": "Meet an Out of this World Friend in Tomorrowland",
             "description": "After defeating the evil Emperor Zurg on Buzz Lightyear Space Ranger Spin, celebrate your victory with Buzz himself. Captain Lightyear is waiting to meet you at an outpost not far from Star Command Headquarters. Report to Buzz for a handshake, autograph and a photo of your out-of-this-world visit.",
-            "times": [],
+            "times": ["9:30AM", "10:20AM", "10:55AM", "11:30AM", "12:00PM", "1:25PM", "2:00PM", "4:15PM", "4:45PM"],
             "type_id": 2,
             "area_id": 6
         },
