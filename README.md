@@ -10,10 +10,10 @@ As a team you will create a interactive map of a theme park. The park will inclu
 * Click on box will display details about the area.
 * Each area will include four types of attractions (Rides, Restaurants, Characters, etc.)
 * Each type will have two different attractions. For example:
-    - Rides: Ride Number 1 and Ride Number 2
-    - Restaurants: Good Food #1 and Not so Good Food
-    - Characters: Hanna Banana and Greg the Giant
-    - Shops: The Horse Hole and Whole Horse with Grains
+    - Rides: Bumber Cars and Night Crawler Coaster
+    - Restaurants: Steak and Fries and Surf the Turf
+    - Characters: Cinderella and Greg the Giant
+    - Shops: The Horse Hole and Whole Horse Gifts
 * Each area will have a minimum of 8 attractions.
 * Click on an attraction and display the description.
 * Display the times if an attraction has a time value.
@@ -21,12 +21,13 @@ As a team you will create a interactive map of a theme park. The park will inclu
 
 ### Time Ticker
 Some attractions and shows only occur at specific times. Allow the user to select a starting time and display related events. The user should be able to click a button and cycle through 30 minute increments and view events occurring within that time window. This should only cycle through the hours the park is open. Sort items by attraction type. (All character meets, all concerts, etc.)
-* Stretch Option - display an icon in respected area box representing timed event. 
 
+**Stretch Option** - display an icon in respected area box representing timed event. 
+
+## Stretch GOALS
 ### Customize the Data
 Create your own park areas and attractions.
 
-## Stretch GOALS
 ### Create Itinerary List
 1. Allow a user to select items and keep as a list.
 2. Allow user to delete items.
@@ -37,12 +38,14 @@ Create your own park areas and attractions.
 * Use canvas element and make it pretty.
 
 
-### Specifications
+## Project Specifications
 * Data should be pulled from Firebase based on collections. Pull only what you need.
 * Each area should have a separate js file with getters and setters.
 * All Firebase calls should be in `attractory.js` file (aka attraction factory).
+* Use SASS to control your color themes.
+* Incorporate a CSS Framework
 
-### Technology Requirements
+## Technology Requirements
 * Browserify
 * Handlebars
 * Grunt (with JSHINT) 
@@ -52,7 +55,7 @@ Create your own park areas and attractions.
 * CSS Framework - your choice
 * SASS
 
-### How to Start
+## How to Start
 * Plan
 * Plan some more.
 * Plan again.
