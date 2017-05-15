@@ -20,7 +20,7 @@ As a team you will create a interactive map of a theme park. The park will inclu
 * Create a footer for page displaying copyright information, location with a link to google maps, and park hours.
 
 ### Time Ticker
-Some attractions and shows only occur at specific times. Allow the user to select a starting time and display related events. The user should be able to click a button and cycle through 30 minute increments and view events occurring within that time window. This should only cycle through the hours the park is open. Sort items by attraction type. (All character meets, all concerts, etc.)
+Some attractions and shows only occur at specific times. Allow the user to select a starting time and display related events. The user should be able to click a button and cycle through 30 minute increments and view events occurring within that time window. This should only cycle through the hours the park is open. Sort items by attraction type. (All character meets, all concerts, etc.) Consider how you will handle "Let the Magic Begin", which starts at 8:55am.
 
 **Stretch Option** - display an icon in respected area box representing timed event. 
 
