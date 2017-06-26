@@ -46,19 +46,11 @@ Create your own park areas and attractions.
 * Incorporate a CSS Framework
 
 ## Technology Requirements
+* SASS
+* JQuery 
+* Grunt (with JSHINT) 
+* Promises
 * Browserify
 * Handlebars
-* Grunt (with JSHINT) 
-* Firebase 
-* JQuery 
-* Promises
-* CSS Framework - your choice
-* SASS
-
-## How to Start
-* Plan
-* Plan some more.
-* Plan again.
-* Review `.json` file. Insert a name for your theme park.
-* Create Firebase account/database and upload `.json` to use as data.
-* Be sure to set your Firebase rules.
+* Grid framework of your choice
+* Firebase for data storage and retrieval
