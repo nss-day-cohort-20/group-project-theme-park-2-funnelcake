@@ -4,7 +4,7 @@ As a team you will create a interactive map of a theme park. The park will inclu
 
 ## Getting Started
 
-> **Pro Tip:** If you find yourself writing logic one the first day of the sprint, then you did not spend enough time planning, and gaining clarification on the acceptance criteria.
+> **Pro Tip:** If you find yourself writing logic on the first day of the sprint, then you did not spend enough time planning, and gaining clarification on the acceptance criteria.
 
 1. Review the [product owner's tickets](https://github.com/nashville-software-school/group-project-theme-park/issues)
 1. Create Firebase account for your team upload the boilerplate JSON data for use in this application.
@@ -25,4 +25,3 @@ As a team you will create a interactive map of a theme park. The park will inclu
 * Promises
 * Grid framework of your choice
 * SASS
-
