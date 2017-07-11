@@ -6,15 +6,17 @@ let fb = require('./fetch-fb');
   // fb.getAreas()
   // .then((attrData) => {
 // })
+
 function sortData(attrData) {
-    var idArr = Object.keys(attrData);
-    if ()
-    console.log("idArr", idArr);
-    // idArr.forEach((key) => {
-    //   attrData[key].id = key;
-    // });
-  console.log("attrData", attrData);
-  return attrData;
+  var attrMap = attrData.map(function(prop) {
+    if (prop = ) {
+
+    }
+    console.log("attrMap", attrMap);
+    return prop ;
+  });
+  // .filter();
+ 
   }
 
   // requirement 3a for associating areas in their attractions

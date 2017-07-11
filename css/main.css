@@ -1,3 +1,37 @@
+.side-output {
+  width: 33%;
+  height: 100%;
+  background-color: blue;
+  float: left; }
 
+.container-fluid {
+  width: 66%; }
+
+.col-md-4 {
+  height: 250px;
+  width: 250px;
+  border: 2px solid black;
+  float: right; }
+
+.area1 {
+  background-color: #730217; }
+
+.area2 {
+  background-color: #D15530; }
+
+.area3 {
+  background-color: #A37849; }
+
+.area4 {
+  background-color: #2594D9; }
+
+.area5 {
+  background-color: #E73C81; }
+
+.area6 {
+  background-color: #3E4D8C; }
+
+.area7 {
+  background-color: #F2CF53; }
 
 /*# sourceMappingURL=main.css.map */
