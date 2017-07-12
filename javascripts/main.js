@@ -7,6 +7,24 @@ let attractions = [];
 let areas = [];
 let types = [];
 
+let textInput = document.getElementById('textInput');
+let submitBtn = document.getElementById('submitBtn');
+
+textInput.addEventListener('keypress', function() {
+  if (textInput.value !== '' && event.key === 'Enter') {
+    console.log("I worked when you pressed enter!");
+  }
+});
+
+submitBtn.addEventListener("click", function() {
+  console.log("I worked when you clicked the button!");
+});
+
+//selecting the area boxes
+$(".area").click(function() {
+	$(this).toggleClass("highlight");
+});
+
 themepark.fbData.getAttr()
 .then((attrData) => {
     attractions = attrData;
