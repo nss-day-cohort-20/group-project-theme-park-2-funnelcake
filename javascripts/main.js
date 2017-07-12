@@ -35,5 +35,9 @@ submitBtn.addEventListener("click", function() {
   console.log("I worked when you clicked the button!");
 });
 
+//selecting the area boxes
+$(".area").click(function() {
+	$(this).toggleClass("highlight");
+});
 
 //module.exports = {sortData};
