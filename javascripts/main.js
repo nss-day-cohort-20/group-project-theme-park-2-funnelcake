@@ -3,6 +3,7 @@
 let $ = require('jquery');
 let fb = require('./fetch-fb');
 let themepark = {fbData: require('./fetch-fb')};
+// let builder = {domInter: require('./DOMInteraction')};
 let attractions = [];
 let areas = [];
 let types = [];
@@ -10,6 +11,7 @@ let types = [];
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
 let sideBar = document.getElementsByClassName("side-bar");
+let areaToggle = document.getElementsByClassName("area");
 
 textInput.addEventListener('keypress', function() {
   if (textInput.value !== '' && event.key === 'Enter') {
@@ -18,15 +20,28 @@ textInput.addEventListener('keypress', function() {
 });
 
 submitBtn.addEventListener("click", function() {
-  console.log("I worked when you clicked the button!");
+  $('.area.highlight').not(this).removeClass('highlight');
+    $(".side-bar").empty();
+    let userInput = textInput.value.toLowerCase();
+  $.each(attractions, function (name, value) {
+    let lowerName = value.name.toLowerCase();
+    if (userInput == lowerName) {
+      $("#" + value.area_id).toggleClass("highlight");
+     $(".side-bar").append(`<a href="#">` + value.name + `</a>` + ` (` + value.typeName + `)<br>`);
+    }
+  });
 });
 
 //selecting the area boxes
 $(".area").click(function() {
+  $('.area.highlight').not(this).removeClass('highlight');
 	$(this).toggleClass("highlight");
-  // console.log("test", attractions);
+  $(".side-bar").empty();
+ let currentId = this.id;
   $.each(attractions, function (name, value) {
-    $(".side-bar").append(`<a href="#">` + value.name + `</a>` + ` (` + value.typeName + `)<br>`);
+    if (currentId == this.area_id) {
+     $(".side-bar").append(`<a href="#">` + value.name + `</a>` + ` (` + value.typeName + `)<br>`);
+    }
   });
 });
 
@@ -57,7 +72,7 @@ themepark.fbData.getAttr()
         attractions[i].typeName = myType[0].name;
       }
     });
-    console.log("final attractions array", attractions);
+    // console.log("final attractions array", attractions);
   });
 
 
