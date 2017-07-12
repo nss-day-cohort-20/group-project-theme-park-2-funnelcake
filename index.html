@@ -3,6 +3,7 @@
 <head>
 	<title>Funnel Cake</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="sticky-footer-navbar.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
@@ -17,8 +18,6 @@
       </button>
       <a class="navbar-brand" href="#">Funnel Cake Park</a>
     </div>
-
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
@@ -38,25 +37,39 @@
 </nav>
 
 <div class="container">
+<div class="row">
+  
+    <div class="col-md-3 side-bar"></div>
+
+  <div class="col-md-8">
 	<div class="row">
-		<div class="col-md-4 area1 area">Area Id 1</div>
-		<div class="col-md-4 area2 area">Area Id 2</div>
-		<div class="col-md-4 area3 area">Area Id 3</div>
+
+		<div class="col-md-4 gridBox area1">Area Id 1</div>
+		<div class="col-md-4 gridBox area2">Area Id 2</div>
+		<div class="col-md-4 gridBox area3">Area Id 3</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4 area4 area">Area Id 4</div>
-		<div class="col-md-4"></div>
-		<div class="col-md-4 area5 area">Area Id 5</div>
+		<div class="col-md-4 gridBox area4">Area Id 4</div>
+		<div class="col-md-4 gridBox"></div>
+		<div class="col-md-4 gridBox area5">Area Id 5</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4 area6 area">Area Id 6</div>
-		<div class="col-md-4 area7 area">Area Id 7</div>
-		<div class="col-md-4 area8 area">Area Id 8</div>
+		<div class="col-md-4 gridBox area6">Area Id 6</div>
+		<div class="col-md-4 gridBox area7">Area Id 7</div>
+		<div class="col-md-4 gridBox area8">Area Id 8</div>
 	</div>
 </div>
-    <div class="side-output">
-    	<p>hi</p>
-    </div>
+</div>
+</div>
+</div>
+<footer class="footer">
+  <div class="container-fluid">
+    <p class="text-muted">&copy 2017</p>
+  </div>  
+</footer>
+
+<script src="dist/app.js"></script>
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
