@@ -21,12 +21,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
-      <form class="navbar-form navbar-left">
+      <div class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" id="textInput" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+
+        <button id="submitBtn" class="btn btn-default">Submit</button>
+      </div>
+
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
@@ -41,6 +43,7 @@
 
   <div class="col-md-8">
 	<div class="row">
+
 		<div class="col-md-4 gridBox area1">Area Id 1</div>
 		<div class="col-md-4 gridBox area2">Area Id 2</div>
 		<div class="col-md-4 gridBox area3">Area Id 3</div>
@@ -66,10 +69,14 @@
 </footer>
 
 <script src="dist/app.js"></script>
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="dist/app.js"></script>
+
 </body>
 </html>
