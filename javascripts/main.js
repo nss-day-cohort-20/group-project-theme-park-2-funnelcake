@@ -2,25 +2,10 @@
 
 let $ = require('jquery');
 let fb = require('./fetch-fb');
-
-  fb.getAreas()
-  .then((attrData) => {
-});
-
-// function sortData(attrData) {
-//   var attrMap = attrData.map(function(prop) {
-//     if (prop = ) {
-
-//     }
-//     console.log("attrMap", attrMap);
-//     return prop ;
-//   });
-//   // .filter();
- 
-//   }
-
-//   // requirement 3a for associating areas in their attractions
-//   // plan to sort based on id
+let themepark = {fbData: require('./fetch-fb')};
+let attractions = [];
+let areas = [];
+let types = [];
 
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
@@ -40,4 +25,32 @@ $(".area").click(function() {
 	$(this).toggleClass("highlight");
 });
 
-//module.exports = {sortData};
+themepark.fbData.getAttr()
+.then((attrData) => {
+    attractions = attrData;
+    return themepark.fbData.getAreas();
+    })
+.then((areaData) => {
+    areas = areaData;
+    attractions.forEach(function (){
+      for(let i = 0; i < attractions.length; i++) {
+        let myArea = areas.filter((area) => {
+          return attractions[i].area_id === area.id;
+        });
+        attractions[i].areaName = myArea[0].name;
+      }
+    });
+    return themepark.fbData.getAttrTypes();
+  })
+.then((typeData) => {
+    types = typeData;
+    attractions.forEach(function (){
+      for(let i = 0; i < attractions.length; i++) {
+        let myType = types.filter((type) => {
+          return attractions[i].type_id === type.id;
+        });
+        attractions[i].typeName = myType[0].name;
+      }
+    });
+    console.log("final attractions array", attractions);
+  });

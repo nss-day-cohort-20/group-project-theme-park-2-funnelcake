@@ -2,55 +2,51 @@
 
 let $ = require('jquery');
 let fbURL = "https://test-9f12e.firebaseio.com/";
+let fbData = {};
+let attractions = [];
+let areas = [];
+let types = [];
 
-function getAreas() {
+fbData.getAreas = function() {
   return new Promise( ( resolve, reject) => {
     $.ajax({
       url: `${fbURL}/areas.json`//<.json is important!
     }).done( (areasData) => {
-      console.log("areasData", areasData );
       resolve(areasData);
     });
   });
-}
-getAreas();
+};
 
-function getAttr() {
+fbData.getAttr = function () {
   return new Promise( ( resolve, reject) => {
     $.ajax({
       url: `${fbURL}/attractions.json`//<.json is important!
     }).done( (attrData) => {
-      console.log("attrData", attrData );
       resolve(attrData);
     });
+    // console.log("try again", attArray);
   });
-}
-getAttr();
+};
 
-function getAttrTypes() {
+fbData.getAttrTypes = function() {
   return new Promise( ( resolve, reject) => {
     $.ajax({
       url: `${fbURL}/attraction_types.json`//<.json is important!
     }).done( (attrTypesData) => {
-      console.log("attrTypesData", attrTypesData );
       resolve(attrTypesData);
     });
   });
-}
-getAttrTypes();
+};
 
-function getParkInfo() {
+fbData.getParkInfo = function () {
   return new Promise( ( resolve, reject) => {
     $.ajax({
       url: `${fbURL}/park-info.json`//<.json is important!
     }).done( (parkData) => {
-      console.log("parkData", parkData );
       resolve(parkData);
     });
   });
-}
-getParkInfo();
+};
 
 
-
-module.exports = {getAreas, getAttr, getAttrTypes, getParkInfo};
+module.exports = fbData;
