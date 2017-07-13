@@ -1,40 +1,69 @@
 'use strict';
 
 let fb = require('./fetch-fb');
-let themepark = {
-    fbData: require('./fetch-fb')
-};
+
+let themepark = {fbData: require('./fetch-fb')};
+// let builder = {domInter: require('./DOMInteraction')};
 let attractions = [];
 let areas = [];
 let types = [];
 
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
-let sideBar = document.getElementsByClassName("side-bar");
+// let sideBar = document.getElementsByClassName("side-bar");
+// let attDetails = document.getElementsByClassName("attDetails")
 
-textInput.addEventListener('keypress', function() {
-    if (textInput.value !== '' && event.key === 'Enter') {
-        console.log("I worked when you pressed enter!");
-    }
-});
+// textInput.addEventListener('keypress', function() {
+//   if (textInput.value !== '' && event.key === 'Enter') {
+//     console.log("I worked when you pressed enter!");
+//   }
+// });
+
+// let attDetails = function () {
+//    for (var i = 0; i < attractions.length; i++) {
+//    attractions[i].addEventListener("click", function (event) {
+//      console.log("working");
+     
+//      });
+//    }
+//  };
 
 submitBtn.addEventListener("click", function() {
-    console.log("I worked when you clicked the button!");
+  $('.area.highlight').not(this).removeClass('highlight');
+    $(".side-bar").empty();
+    let userInput = textInput.value.toLowerCase();
+  $.each(attractions, function (name, value) {
+    let lowerName = value.name.toLowerCase();
+    if (userInput == lowerName) {
+      $("#" + value.area_id).toggleClass("highlight");
+     $(".side-bar").append(`<a href="#">` + value.name + `</a>` + ` (` + value.typeName + `)<br>`);
+    }
+  });
 });
-
-//selecting the area boxes
-$(".area").click(function() {
 
 // Bootstap datetimepicker
 $(document).ready(function() {
 $('#time').bootstrapMaterialDatePicker({date: false});
-
-	$(this).toggleClass("highlight");
-  // console.log("test", attractions);
+	
+  //selecting the area boxes
+$(".area").click(function() {
+$('.area.highlight').not(this).removeClass('highlight');
+  $(this).toggleClass("highlight");
+  $(".side-bar").empty();
+ let currentId = this.id; 
   $.each(attractions, function (name, value) {
-    $(".side-bar").append(`<a href="#">` + value.name + `</a>` + ` (` + value.typeName + `)<br>`);
+    if (currentId == this.area_id) { 
+     $(".side-bar").append(`<a href="#">` + value.name + `</a>` + ` (` + value.typeName + `)<br>` + 
+        `<div class="attDetails" style="display: none">` + value.description + `</div>`
+      );
+    }
+  });
+     $("a").click(function(){
+    // if (this = )
+    $(".attDetails").show();
   });
 });
+
 
 themepark.fbData.getAttr()
     .then((attrData) => {
@@ -66,17 +95,12 @@ themepark.fbData.getAttr()
         attractions[i].typeName = myType[0].name;
       }
     });
-    console.log("final attractions array", attractions);
+    // console.log("final attractions array", attractions);
   });
-
 
 // $(".area").click(function() {
 //     $(this).get id of dom element, loop through array, (if area id = this.id) pull out attractions for that area; pass in id
 // }); 
-
-
-
-
 
 // //function for finding attractions based on area
 // let findAtt = function(area) {
@@ -85,8 +109,6 @@ themepark.fbData.getAttr()
 //     displayDiv.innerHTML = `<a href"">${attractions.name}</a> (${attractions.typeName})<br>`
 //   }
 //   }
-
-  
 // }
 
 // //function for showing attractions in dom after click on area
