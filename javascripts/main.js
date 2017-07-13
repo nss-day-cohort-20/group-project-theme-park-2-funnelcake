@@ -49,6 +49,7 @@ function submitPrint (area) {
     }
   });
        $(".visibility").click(function(){
+      console.log("area", area.next());
       $(".attDetails").hide();
     $(this).next().show();
   });
@@ -68,6 +69,7 @@ function print (area) {
     }
   });
      $(".visibility").click(function(){
+      console.log("area", area.next());
       $(".attDetails").hide();
     $(this).next().show();
   });
@@ -76,13 +78,12 @@ function print (area) {
 themepark.fbData.getAttr()
     .then((attrData) => {
         attractions = attrData;
-            attractions.forEach(function (){
-            for(let i = 0; i < attractions.length; i++) {
-              if (attractions[i].times === undefined) {
-                attractions[i].times = "Open all day";
-              }
-          }
-        });
+        //     attractions.forEach(function (){
+        //     for(let i = 0; i < attractions.length; i++) {
+        //       console.log("times?", attractions.times);
+        // //   
+        //     }
+        //   });
         return themepark.fbData.getAreas();
     })
     .then((areaData) => {
@@ -123,18 +124,43 @@ themepark.fbData.getAttr()
                     <div class="attDetails">${array.description}<br><p class="times">Times: ${array.times}</p></div>`);
                   }
                 });
-
               });
             });
-            // if (attractions.times == "Open all day") {
-            //         $(".side-bar").append(`<p class="visibility"><a href="#">${attractions.name}</a> (${attractions.typeName})</p>
-            //         <div class="attDetails">${attractions.description}<br><p class="times">Times: ${attractions.times}</p></div>`);
-            //       }
         });
     });
+
+
+
+
+
+// .then ((attrData)=> {
+//   attractions = attrData;
+//   attractions.forEach(function (){
+//       for(let i = 0; i < attractions.length; i++) {
+//         console.log("times?", attractions.times);
+//        if (attractions.times === undefined) {
+//         console.log("times?", attractions.times);
+//     attractions.times = "Open all day";
+
+//   }
+//       }
+//     });
+
  
+
+
+
+
  function timeCheck(val) {
   if (val === undefined) {
     $(".times").hide();
   }
 }
+
+   //     attractions.forEach(function (){
+        //     for(let i = 0; i < attractions.length; i++) {
+        //       if (attractions[i].times === undefined) {
+        //         attractions[i].times = "Open all day";
+        //       } 
+        //   }
+        // });
