@@ -1,5 +1,5 @@
 'use strict';
-
+// let moment = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js";
 let fb = require('./fetch-fb');
 let themepark = {
     fbData: require('./fetch-fb')
@@ -30,7 +30,7 @@ $(".area").click(function() {
 // Bootstap datetimepicker
 
 $(document).ready(function() {
-$('#time').bootstrapMaterialDatePicker({date: false});
+$('#time').bootstrapMaterialDatePicker({ date: false, shortTime: true, format : 'HH:mm' });
 });
 
 themepark.fbData.getAttr()
