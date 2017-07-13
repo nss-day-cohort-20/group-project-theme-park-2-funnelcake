@@ -13,13 +13,33 @@ let types = [];
 
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
+let timePicker = document.getElementById('time');
 
+submitBtn.addEventListener("click", function() {
+  submitPrint(this);
+});
+
+textInput.addEventListener('keypress', function() {
+  if (textInput.value !== '' && event.key === 'Enter') {
+    submitPrint(this);
+  }
+}); 
+
+$(".area").click(function() {
+  print($(this));
+});
+
+
+function clear (area) {
+  $('.area.highlight').not(area).removeClass('highlight');
+    $(".side-bar").empty();
+}
 
 //compares user input to attraction name, finds the area id and highlights the appropriate area
-submitBtn.addEventListener("click", function() {
-    $('.area.highlight').not(this).removeClass('highlight');
-    $(".side-bar").empty();
-    let userInput = textInput.value.toLowerCase();
+function submitPrint (area) {
+  clear(area);
+  let userInput = textInput.value.toLowerCase();
+  clear(area);
   $.each(attractions, function (name, value) {
     let lowerName = value.name.toLowerCase();
     if (userInput == lowerName) {
@@ -28,21 +48,15 @@ submitBtn.addEventListener("click", function() {
         <div class="attDetails">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
     }
   });
-});
-
-function timeCheck(val) {
-  if (val === undefined) {
-    $(".times").hide();
-  }
+  textInput.value = '';
 }
 
 //selecting the area boxes, loop through attractions to match area id with area clicked on and print that attraction to the dom
 //click even embedded to allow clicking on attraction name and making the description visible
-$(".area").click(function() {
-  $('.area.highlight').not(this).removeClass('highlight');
-	$(this).toggleClass("highlight");
-  $(".side-bar").empty();
-  let currentId = this.id; 
+function print (area) {
+  clear(area);
+  area.toggleClass("highlight");
+  let currentId = area.attr("id"); 
   $.each(attractions, function (name, value) {
     if (currentId == value.area_id) { 
      $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
@@ -51,10 +65,11 @@ $(".area").click(function() {
     }
   });
      $(".visibility").click(function(){
+      console.log("area", area.next());
       $(".attDetails").hide();
     $(this).next().show();
   });
-});
+}
 
 themepark.fbData.getAttr()
 .then((attrData) => {
@@ -115,6 +130,28 @@ $(document).ready(function() {
     $('#time').bootstrapMaterialDatePicker({
         date: false,
         time: true,
-        format: 'HH:mm'
+        format: 'HH:mmA'
       });
     });
+
+
+
+ timePicker.addEventListener("click", function() {
+    console.log("picker?");
+    $(".side-bar").empty();
+    let userInput = timePicker.value;
+  $.each(attractions, function (name, value) {
+    if (userInput == value.times) {
+      $("#" + value.area_id).toggleClass("highlight");
+     $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
+        <div class="attDetails">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
+    }
+  });
+  textInput.value = '';
+});
+
+ function timeCheck(val) {
+  if (val === undefined) {
+    $(".times").hide();
+  }
+}
