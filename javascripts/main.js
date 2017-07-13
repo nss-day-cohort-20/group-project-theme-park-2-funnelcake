@@ -114,7 +114,7 @@ themepark.fbData.getAttr()
 $(document).ready(function() {
     $('#time').bootstrapMaterialDatePicker({
         date: false,
-        shortTime: true,
-        format: 'hh:mm'
+        time: true,
+        format: 'HH:mm'
       });
     });
