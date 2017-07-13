@@ -10,18 +10,18 @@ let themepark = {
 let attractions = [];
 let areas = [];
 let types = [];
+let timeVal;
 
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
-let timePicker = document.getElementById('time');
 
 submitBtn.addEventListener("click", function() {
-  submitPrint(this);
+  submitPrint($(this));
 });
 
 textInput.addEventListener('keypress', function() {
   if (textInput.value !== '' && event.key === 'Enter') {
-    submitPrint(this);
+    submitPrint($(this));
   }
 }); 
 
@@ -45,8 +45,12 @@ function submitPrint (area) {
     if (userInput == lowerName) {
       $("#" + value.area_id).toggleClass("highlight");
      $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
-        <div class="attDetails">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
+        <div class="attDetails" style="display: none">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
     }
+  });
+       $(".visibility").click(function(){
+      $(".attDetails").hide();
+    $(this).next().show();
   });
   textInput.value = '';
 }
@@ -60,12 +64,10 @@ function print (area) {
   $.each(attractions, function (name, value) {
     if (currentId == value.area_id) { 
      $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
-        <div class="attDetails" style="display: none">${value.description}<br><p class="times">Times: ${value.times}</p></div>`
-      );
+        <div class="attDetails" style="display: none">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
     }
   });
      $(".visibility").click(function(){
-      console.log("area", area.next());
       $(".attDetails").hide();
     $(this).next().show();
   });
@@ -74,16 +76,13 @@ function print (area) {
 themepark.fbData.getAttr()
     .then((attrData) => {
         attractions = attrData;
-        //     attractions.forEach(function (){
-        //     for(let i = 0; i < attractions.length; i++) {
-        //       console.log("times?", attractions.times);
-        //      if (attractions.times === undefined) {
-        //       console.log("times?", attractions.times);
-        //   attractions.times = "Open all day";
-
-        // }
-        //     }
-        //   });
+            attractions.forEach(function (){
+            for(let i = 0; i < attractions.length; i++) {
+              if (attractions[i].times === undefined) {
+                attractions[i].times = "Open all day";
+              }
+          }
+        });
         return themepark.fbData.getAreas();
     })
     .then((areaData) => {
@@ -116,44 +115,24 @@ themepark.fbData.getAttr()
                 shortTime: true,
                 format: 'hh:mmA'
             }).on('change', function(e, date) {
-              let timeVal = $('#time').val();
-              console.log(timeVal);
+              timeVal = $('#time').val();
+              $.each(attractions, function (name, array) {
+                $.each(array.times, function (name, value) {
+                  if (timeVal == value) {
+                    $(".side-bar").append(`<p class="visibility"><a href="#">${array.name}</a> (${array.typeName})</p>
+                    <div class="attDetails">${array.description}<br><p class="times">Times: ${array.times}</p></div>`);
+                  }
+                });
+
+              });
             });
+            // if (attractions.times == "Open all day") {
+            //         $(".side-bar").append(`<p class="visibility"><a href="#">${attractions.name}</a> (${attractions.typeName})</p>
+            //         <div class="attDetails">${attractions.description}<br><p class="times">Times: ${attractions.times}</p></div>`);
+            //       }
         });
-
     });
-
-
-
-
-
-// .then ((attrData)=> {
-//   attractions = attrData;
-//   attractions.forEach(function (){
-//       for(let i = 0; i < attractions.length; i++) {
-//         console.log("times?", attractions.times);
-//        if (attractions.times === undefined) {
-//         console.log("times?", attractions.times);
-//     attractions.times = "Open all day";
-
-//   }
-//       }
-//     });
-
- timePicker.addEventListener("click", function() {
-    console.log("picker?");
-    $(".side-bar").empty();
-    let userInput = timePicker.value;
-  $.each(attractions, function (name, value) {
-    if (userInput == value.times) {
-      $("#" + value.area_id).toggleClass("highlight");
-     $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
-        <div class="attDetails">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
-    }
-  });
-  textInput.value = '';
-});
-
+ 
  function timeCheck(val) {
   if (val === undefined) {
     $(".times").hide();
