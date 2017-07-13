@@ -9,6 +9,12 @@
   height: 600px;
   background-color: lightblue; }
 
+.scroll {
+  overflow: scroll; }
+
+.navbar {
+  margin-bottom: 10px; }
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -42,6 +48,16 @@
 .highlight {
   border: 5px solid green; }
 
+
+.navbar-brand {
+  padding: 0; }
+
+.logo {
+  height: 50px; }
+
+.well {
+  margin-bottom: 10px; }
+
 .area {
   font-size: 8em;
   text-align: center;
@@ -50,5 +66,6 @@
 .main {
   background: url(../images/background.png) no-repeat;
   background-size: cover; }
+
 
 /*# sourceMappingURL=main.css.map */
