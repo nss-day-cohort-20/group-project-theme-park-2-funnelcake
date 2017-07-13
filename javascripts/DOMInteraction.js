@@ -1,6 +1,6 @@
 'use strict';
 
-let $ = require('jquery');
+// let $ = require('jquery');
 let domInter = {};
 
 // domInter.highlight = function () {

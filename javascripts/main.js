@@ -1,9 +1,12 @@
 'use strict';
-
-let $ = require('jquery');
+// let moment = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js";
 let fb = require('./fetch-fb');
-let themepark = {fbData: require('./fetch-fb')};
+
+let themepark = {
+    fbData: require('./fetch-fb')
+};
 // let builder = {domInter: require('./DOMInteraction')};
+
 let attractions = [];
 let areas = [];
 let types = [];
@@ -11,9 +14,10 @@ let types = [];
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
 
+
 //compares user input to attraction name, finds the area id and highlights the appropriate area
 submitBtn.addEventListener("click", function() {
-  $('.area.highlight').not(this).removeClass('highlight');
+    $('.area.highlight').not(this).removeClass('highlight');
     $(".side-bar").empty();
     let userInput = textInput.value.toLowerCase();
   $.each(attractions, function (name, value) {
@@ -52,56 +56,65 @@ $(".area").click(function() {
   });
 });
 
-
 themepark.fbData.getAttr()
 .then((attrData) => {
     attractions = attrData;
-      attractions.forEach(function (){
-      for(let i = 0; i < attractions.length; i++) {
-        console.log("times?", attractions.times);
-       if (attractions.times === undefined) {
-        console.log("times?", attractions.times);
-    attractions.times = "Open all day";
+  //     attractions.forEach(function (){
+  //     for(let i = 0; i < attractions.length; i++) {
+  //       console.log("times?", attractions.times);
+  //      if (attractions.times === undefined) {
+  //       console.log("times?", attractions.times);
+  //   attractions.times = "Open all day";
 
-  }
-      }
-    });
+  // }
+  //     }
+  //   });
     return themepark.fbData.getAreas();
     })
-.then((areaData) => {
-    areas = areaData;
-    attractions.forEach(function (){
-      for(let i = 0; i < attractions.length; i++) {
-        let myArea = areas.filter((area) => {
-          return attractions[i].area_id === area.id;
+    .then((areaData) => {
+        areas = areaData;
+        attractions.forEach(function() {
+            for (let i = 0; i < attractions.length; i++) {
+                let myArea = areas.filter((area) => {
+                    return attractions[i].area_id === area.id;
+                });
+                attractions[i].areaName = myArea[0].name;
+            }
         });
-        attractions[i].areaName = myArea[0].name;
-      }
-    });
-    return themepark.fbData.getAttrTypes();
-  })
-.then((typeData) => {
-    types = typeData;
-    attractions.forEach(function (){
-      for(let i = 0; i < attractions.length; i++) {
-        let myType = types.filter((type) => {
-          return attractions[i].type_id === type.id;
+        return themepark.fbData.getAttrTypes();
+    })
+    .then((typeData) => {
+        types = typeData;
+        attractions.forEach(function() {
+            for (let i = 0; i < attractions.length; i++) {
+                let myType = types.filter((type) => {
+                    return attractions[i].type_id === type.id;
+                });
+                attractions[i].typeName = myType[0].name;
+            }
         });
-        attractions[i].typeName = myType[0].name;
-      }
     });
-  })
-.then ((attrData)=> {
-  attractions = attrData;
-  attractions.forEach(function (){
-      for(let i = 0; i < attractions.length; i++) {
-        console.log("times?", attractions.times);
-       if (attractions.times === undefined) {
-        console.log("times?", attractions.times);
-    attractions.times = "Open all day";
+// .then ((attrData)=> {
+//   attractions = attrData;
+//   attractions.forEach(function (){
+//       for(let i = 0; i < attractions.length; i++) {
+//         console.log("times?", attractions.times);
+//        if (attractions.times === undefined) {
+//         console.log("times?", attractions.times);
+//     attractions.times = "Open all day";
 
-  }
-      }
-    });
+//   }
+//       }
+//     });
   
-});
+// });
+
+// Bootstap datetimepicker
+
+$(document).ready(function() {
+    $('#time').bootstrapMaterialDatePicker({
+        date: false,
+        shortTime: true,
+        format: 'hh:mm'
+      });
+    });
