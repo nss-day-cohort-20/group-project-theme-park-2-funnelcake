@@ -3,7 +3,9 @@
 <head>
 	<title>Funnel Cake</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link href="sticky-footer-navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css"/>
+    <!-- <link href="sticky-footer-navbar.css" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
@@ -36,6 +38,23 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="container well">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Time Picker</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-control-wrapper">
+        <input type="text" id="time" class="form-control floating-label" placeholder="Time">
+      </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+</div>
+
 <div class="container">
 <div class="row">
   
@@ -44,8 +63,8 @@
     </div>
 
   <div class="col-md-8">
-	<div class="row">
 
+	<div class="row">
 		<div class="col-md-4 gridBox area1 area" id="1">Area Id 1</div>
 		<div class="col-md-4 gridBox area2 area" id="2">Area Id 2</div>
 		<div class="col-md-4 gridBox area3 area" id="3">Area Id 3</div>
@@ -60,6 +79,7 @@
 		<div class="col-md-4 gridBox area7 area" id="7">Area Id 7</div>
 		<div class="col-md-4 gridBox area8 area" id="8">Area Id 8</div>
 	</div>
+
 </div>
 </div>
 </div>
@@ -75,6 +95,8 @@
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
 
 <script src="dist/app.js"></script>
 

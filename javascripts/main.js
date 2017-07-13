@@ -1,7 +1,7 @@
 'use strict';
 
-let $ = require('jquery');
 let fb = require('./fetch-fb');
+
 let themepark = {fbData: require('./fetch-fb')};
 // let builder = {domInter: require('./DOMInteraction')};
 let attractions = [];
@@ -41,10 +41,14 @@ submitBtn.addEventListener("click", function() {
   });
 });
 
-//selecting the area boxes
+// Bootstap datetimepicker
+$(document).ready(function() {
+$('#time').bootstrapMaterialDatePicker({date: false});
+	
+  //selecting the area boxes
 $(".area").click(function() {
-  $('.area.highlight').not(this).removeClass('highlight');
-	$(this).toggleClass("highlight");
+$('.area.highlight').not(this).removeClass('highlight');
+  $(this).toggleClass("highlight");
   $(".side-bar").empty();
  let currentId = this.id; 
   $.each(attractions, function (name, value) {
@@ -62,28 +66,31 @@ $(".area").click(function() {
 
 
 themepark.fbData.getAttr()
-.then((attrData) => {
-    attractions = attrData;
-    return themepark.fbData.getAreas();
+    .then((attrData) => {
+        attractions = attrData;
+        return themepark.fbData.getAreas();
     })
-.then((areaData) => {
-    areas = areaData;
-    attractions.forEach(function (){
-      for(let i = 0; i < attractions.length; i++) {
-        let myArea = areas.filter((area) => {
-          return attractions[i].area_id === area.id;
+    .then((areaData) => {
+        areas = areaData;
+        attractions.forEach(function() {
+            for (let i = 0; i < attractions.length; i++) {
+                let myArea = areas.filter((area) => {
+                    return attractions[i].area_id === area.id;
+                });
+                attractions[i].areaName = myArea[0].name;
+            }
         });
-        attractions[i].areaName = myArea[0].name;
-      }
-    });
-    return themepark.fbData.getAttrTypes();
-  })
-.then((typeData) => {
-    types = typeData;
-    attractions.forEach(function (){
-      for(let i = 0; i < attractions.length; i++) {
-        let myType = types.filter((type) => {
-          return attractions[i].type_id === type.id;
+        return themepark.fbData.getAttrTypes();
+    })
+    .then((typeData) => {
+        types = typeData;
+        attractions.forEach(function() {
+            for (let i = 0; i < attractions.length; i++) {
+                let myType = types.filter((type) => {
+                    return attractions[i].type_id === type.id;
+                });
+                attractions[i].typeName = myType[0].name;
+            }
         });
         attractions[i].typeName = myType[0].name;
       }
@@ -91,14 +98,9 @@ themepark.fbData.getAttr()
     // console.log("final attractions array", attractions);
   });
 
-
 // $(".area").click(function() {
 //     $(this).get id of dom element, loop through array, (if area id = this.id) pull out attractions for that area; pass in id
 // }); 
-
-
-
-
 
 // //function for finding attractions based on area
 // let findAtt = function(area) {
@@ -107,8 +109,6 @@ themepark.fbData.getAttr()
 //     displayDiv.innerHTML = `<a href"">${attractions.name}</a> (${attractions.typeName})<br>`
 //   }
 //   }
-
-  
 // }
 
 // //function for showing attractions in dom after click on area
