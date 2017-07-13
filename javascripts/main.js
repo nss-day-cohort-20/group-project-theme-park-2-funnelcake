@@ -25,10 +25,16 @@ submitBtn.addEventListener("click", function() {
     if (userInput == lowerName) {
       $("#" + value.area_id).toggleClass("highlight");
      $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
-        <div class="attDetails">${value.description}<br><p class"times">Times: ${value.times}</p></div>`);
+        <div class="attDetails">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
     }
   });
 });
+
+function timeCheck(val) {
+  if (val === undefined) {
+    $(".times").hide();
+  }
+}
 
 //selecting the area boxes, loop through attractions to match area id with area clicked on and print that attraction to the dom
 //click even embedded to allow clicking on attraction name and making the description visible
@@ -40,7 +46,7 @@ $(".area").click(function() {
   $.each(attractions, function (name, value) {
     if (currentId == value.area_id) { 
      $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
-        <div class="attDetails" style="display: none">${value.description}<br><p class"times">Times: ${value.times}</p></div>`
+        <div class="attDetails" style="display: none">${value.description}<br><p class="times">Times: ${value.times}</p></div>`
       );
     }
   });
@@ -51,9 +57,19 @@ $(".area").click(function() {
 });
 
 themepark.fbData.getAttr()
-    .then((attrData) => {
-        attractions = attrData;
-        return themepark.fbData.getAreas();
+.then((attrData) => {
+    attractions = attrData;
+  //     attractions.forEach(function (){
+  //     for(let i = 0; i < attractions.length; i++) {
+  //       console.log("times?", attractions.times);
+  //      if (attractions.times === undefined) {
+  //       console.log("times?", attractions.times);
+  //   attractions.times = "Open all day";
+
+  // }
+  //     }
+  //   });
+    return themepark.fbData.getAreas();
     })
     .then((areaData) => {
         areas = areaData;
@@ -78,14 +94,27 @@ themepark.fbData.getAttr()
             }
         });
     });
+// .then ((attrData)=> {
+//   attractions = attrData;
+//   attractions.forEach(function (){
+//       for(let i = 0; i < attractions.length; i++) {
+//         console.log("times?", attractions.times);
+//        if (attractions.times === undefined) {
+//         console.log("times?", attractions.times);
+//     attractions.times = "Open all day";
 
-  });
+//   }
+//       }
+//     });
+  
+// });
 
 // Bootstap datetimepicker
 
 $(document).ready(function() {
     $('#time').bootstrapMaterialDatePicker({
         date: false,
-        shortTime: true,
+        time: true,
         format: 'HH:mm'
+      });
     });
