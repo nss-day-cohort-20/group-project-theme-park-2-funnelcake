@@ -72,19 +72,19 @@ function print (area) {
 }
 
 themepark.fbData.getAttr()
-.then((attrData) => {
-    attractions = attrData;
-  //     attractions.forEach(function (){
-  //     for(let i = 0; i < attractions.length; i++) {
-  //       console.log("times?", attractions.times);
-  //      if (attractions.times === undefined) {
-  //       console.log("times?", attractions.times);
-  //   attractions.times = "Open all day";
+    .then((attrData) => {
+        attractions = attrData;
+        //     attractions.forEach(function (){
+        //     for(let i = 0; i < attractions.length; i++) {
+        //       console.log("times?", attractions.times);
+        //      if (attractions.times === undefined) {
+        //       console.log("times?", attractions.times);
+        //   attractions.times = "Open all day";
 
-  // }
-  //     }
-  //   });
-    return themepark.fbData.getAreas();
+        // }
+        //     }
+        //   });
+        return themepark.fbData.getAreas();
     })
     .then((areaData) => {
         areas = areaData;
@@ -108,7 +108,25 @@ themepark.fbData.getAttr()
                 attractions[i].typeName = myType[0].name;
             }
         });
+    })
+    .then(() => {
+        $(document).ready(function() {
+            $('#time').bootstrapMaterialDatePicker({
+                date: false,
+                shortTime: true,
+                format: 'hh:mmA'
+            }).on('change', function(e, date) {
+              let timeVal = $('#time').val();
+              console.log(timeVal);
+            });
+        });
+
     });
+
+
+
+
+
 // .then ((attrData)=> {
 //   attractions = attrData;
 //   attractions.forEach(function (){
@@ -121,20 +139,6 @@ themepark.fbData.getAttr()
 //   }
 //       }
 //     });
-  
-// });
-
-// Bootstap datetimepicker
-
-$(document).ready(function() {
-    $('#time').bootstrapMaterialDatePicker({
-        date: false,
-        time: true,
-        format: 'HH:mmA'
-      });
-    });
-
-
 
  timePicker.addEventListener("click", function() {
     console.log("picker?");
