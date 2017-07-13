@@ -20,56 +20,55 @@ submitBtn.addEventListener("click", function() {
     $('.area.highlight').not(this).removeClass('highlight');
     $(".side-bar").empty();
     let userInput = textInput.value.toLowerCase();
-  $.each(attractions, function (name, value) {
-    let lowerName = value.name.toLowerCase();
-    if (userInput == lowerName) {
-      $("#" + value.area_id).toggleClass("highlight");
-     $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
+    $.each(attractions, function(name, value) {
+        let lowerName = value.name.toLowerCase();
+        if (userInput == lowerName) {
+            $("#" + value.area_id).toggleClass("highlight");
+            $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
         <div class="attDetails">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
-    }
-  });
+        }
+    });
 });
 
 function timeCheck(val) {
-  if (val === undefined) {
-    $(".times").hide();
-  }
+    if (val === undefined) {
+        $(".times").hide();
+    }
 }
 
 //selecting the area boxes, loop through attractions to match area id with area clicked on and print that attraction to the dom
 //click even embedded to allow clicking on attraction name and making the description visible
 $(".area").click(function() {
-  $('.area.highlight').not(this).removeClass('highlight');
-	$(this).toggleClass("highlight");
-  $(".side-bar").empty();
-  let currentId = this.id; 
-  $.each(attractions, function (name, value) {
-    if (currentId == value.area_id) { 
-     $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
-        <div class="attDetails" style="display: none">${value.description}<br><p class="times">Times: ${value.times}</p></div>`
-      );
-    }
-  });
-     $(".visibility").click(function(){
-      $(".attDetails").hide();
-    $(this).next().show();
-  });
+    $('.area.highlight').not(this).removeClass('highlight');
+    $(this).toggleClass("highlight");
+    $(".side-bar").empty();
+    let currentId = this.id;
+    $.each(attractions, function(name, value) {
+        if (currentId == value.area_id) {
+            $(".side-bar").append(`<p class="visibility"><a href="#">${value.name}</a> (${value.typeName})</p>
+        <div class="attDetails" style="display: none">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
+        }
+    });
+    $(".visibility").click(function() {
+        $(".attDetails").hide();
+        $(this).next().show();
+    });
 });
 
 themepark.fbData.getAttr()
-.then((attrData) => {
-    attractions = attrData;
-  //     attractions.forEach(function (){
-  //     for(let i = 0; i < attractions.length; i++) {
-  //       console.log("times?", attractions.times);
-  //      if (attractions.times === undefined) {
-  //       console.log("times?", attractions.times);
-  //   attractions.times = "Open all day";
+    .then((attrData) => {
+        attractions = attrData;
+        //     attractions.forEach(function (){
+        //     for(let i = 0; i < attractions.length; i++) {
+        //       console.log("times?", attractions.times);
+        //      if (attractions.times === undefined) {
+        //       console.log("times?", attractions.times);
+        //   attractions.times = "Open all day";
 
-  // }
-  //     }
-  //   });
-    return themepark.fbData.getAreas();
+        // }
+        //     }
+        //   });
+        return themepark.fbData.getAreas();
     })
     .then((areaData) => {
         areas = areaData;
@@ -93,7 +92,25 @@ themepark.fbData.getAttr()
                 attractions[i].typeName = myType[0].name;
             }
         });
+    })
+    .then(() => {
+        $(document).ready(function() {
+            $('#time').bootstrapMaterialDatePicker({
+                date: false,
+                shortTime: true,
+                format: 'hh:mmA'
+            }).on('change', function(e, date) {
+              let timeVal = $('#time').val();
+              console.log(timeVal);
+            });
+        });
+
     });
+
+
+
+
+
 // .then ((attrData)=> {
 //   attractions = attrData;
 //   attractions.forEach(function (){
@@ -106,15 +123,5 @@ themepark.fbData.getAttr()
 //   }
 //       }
 //     });
-  
+
 // });
-
-// Bootstap datetimepicker
-
-$(document).ready(function() {
-    $('#time').bootstrapMaterialDatePicker({
-        date: false,
-        time: true,
-        format: 'HH:mm'
-      });
-    });
