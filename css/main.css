@@ -7,13 +7,18 @@
 
 .side-bar {
   height: 600px;
-  background-color: lightblue; }
+  background-color: #69bdf1;
+  border-bottom: 5px solid #f0555f;
+  border-top: 5px solid #f0555f;
+  border-left: 5px solid #f0555f;
+  color: white; }
 
 .scroll {
   overflow: scroll; }
 
 .navbar {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  height: 125px; }
 
 .footer {
   position: fixed;
@@ -46,16 +51,18 @@
   color: #F2CF53; }
 
 .highlight {
-  border: 5px solid green; }
+  border: 5px solid #f0555f; }
 
 .navbar-brand {
   padding: 0; }
 
 .logo {
-  height: 50px; }
+  height: 125px; }
 
 .well {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  margin: 0px auto 10px;
+  max-width: 50%; }
 
 .area {
   font-size: 8em;
@@ -64,6 +71,8 @@
 
 .main {
   background: url(../images/background.png) no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  border: 5px solid #f0555f; }
 
-/*# sourceMappingURL=main.css.map */
+.floating-label {
+  max-width: 20%; }
