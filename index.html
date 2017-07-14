@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-<body>
+<body class="body">
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -25,10 +25,10 @@
       </ul>
       <div class="navbar-form navbar-left">
         <div class="form-group">
+        <h3>Interactive Park Map</h3>
           <input type="text" id="textInput" class="form-control" placeholder="Search">
+          <button id="submitBtn" class="btn btn-default">Submit</button>
         </div>
-
-        <button id="submitBtn" class="btn btn-default">Submit</button>
       </div>
 
       <ul class="nav navbar-nav navbar-right">
@@ -40,12 +40,12 @@
 
 <div class="container well">
   <div class="row">
-    <div class="col-md-6">
-      <h2>Time Picker</h2>
+    <div class="col-md-12 time">
+      <span><h4>Select a time:</h4></span>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-control-wrapper">
         <input type="text" id="time" class="form-control floating-label" placeholder="Time">
       </div>
