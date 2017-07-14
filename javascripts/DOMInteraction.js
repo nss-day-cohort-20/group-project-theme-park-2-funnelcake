@@ -11,7 +11,7 @@ domInter.submitPrint = function (area, attractions) {
   domInter.clear(area);
   $.each(attractions, function (name, value) {
     let lowerName = value.name.toLowerCase();
-    if (userInput == lowerName) {
+    if (lowerName.indexOf(userInput) !== -1) {
       $("#" + value.area_id).toggleClass("highlight");
      domInter.atts(value);
     }
