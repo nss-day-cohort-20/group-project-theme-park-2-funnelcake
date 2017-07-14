@@ -35,6 +35,11 @@ function clear (area) {
     $(".side-bar").empty();
 }
 
+function details (div) {
+    $(".attDetails").hide();
+    $(div).next().show();
+}
+
 //compares user input to attraction name, finds the area id and highlights the appropriate area
 function submitPrint (area) {
   clear(area);
@@ -48,10 +53,8 @@ function submitPrint (area) {
         <div class="attDetails" style="display: none">${value.description}<br><p class="times">Times: ${value.times}</p></div>`);
     }
   });
-       $(".visibility").click(function(){
-      console.log("area", area.next());
-      $(".attDetails").hide();
-    $(this).next().show();
+     $(".visibility").click(function(){
+      details($(this));
   });
   textInput.value = '';
 }
@@ -69,21 +72,20 @@ function print (area) {
     }
   });
      $(".visibility").click(function(){
-      console.log("area", area.next());
-      $(".attDetails").hide();
-    $(this).next().show();
+      details($(this));
   });
 }
 
 themepark.fbData.getAttr()
     .then((attrData) => {
         attractions = attrData;
-        //     attractions.forEach(function (){
+   //     attractions.forEach(function (){
         //     for(let i = 0; i < attractions.length; i++) {
-        //       console.log("times?", attractions.times);
-        // //   
-        //     }
-        //   });
+        //       if (attractions[i].times === undefined) {
+        //         attractions[i].times = "Open all day";
+        //       } 
+        //   }
+        // });
         return themepark.fbData.getAreas();
     })
     .then((areaData) => {
@@ -116,51 +118,27 @@ themepark.fbData.getAttr()
                 shortTime: true,
                 format: 'hh:mmA'
             }).on('change', function(e, date) {
+              $(".side-bar").empty();
               timeVal = $('#time').val();
               $.each(attractions, function (name, array) {
                 $.each(array.times, function (name, value) {
                   if (timeVal == value) {
                     $(".side-bar").append(`<p class="visibility"><a href="#">${array.name}</a> (${array.typeName})</p>
-                    <div class="attDetails">${array.description}<br><p class="times">Times: ${array.times}</p></div>`);
+                    <div class="attDetails" style="display: none">${array.description}<br><p class="times">Times: ${array.times}</p></div>`);
                   }
                 });
               });
+
+      $(".visibility").click(function(){
+      details($(this));
+  });
+
             });
         });
     });
-
-
-
-
-
-// .then ((attrData)=> {
-//   attractions = attrData;
-//   attractions.forEach(function (){
-//       for(let i = 0; i < attractions.length; i++) {
-//         console.log("times?", attractions.times);
-//        if (attractions.times === undefined) {
-//         console.log("times?", attractions.times);
-//     attractions.times = "Open all day";
-
-//   }
-//       }
-//     });
-
- 
-
-
-
 
  function timeCheck(val) {
   if (val === undefined) {
     $(".times").hide();
   }
 }
-
-   //     attractions.forEach(function (){
-        //     for(let i = 0; i < attractions.length; i++) {
-        //       if (attractions[i].times === undefined) {
-        //         attractions[i].times = "Open all day";
-        //       } 
-        //   }
-        // });
