@@ -12,19 +12,26 @@ let timeVal;
 
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
+let typeCheck = document.getElementById('typeCheck');
 
 submitBtn.addEventListener("click", function() {
-  builder.domInter.submitPrint($(this), attractions);
+  if (textInput.value !== '' && event.key === 'Enter' && typeCheck.checked === false) {
+    builder.domInter.attSearch($(this), attractions);
+  } else if(textInput.value !== '' && event.key === 'Enter' && typeCheck.checked === true){
+    builder.domInter.typeSearch($(this), attractions);
+  }
 });
 
 textInput.addEventListener('keypress', function() {
-  if (textInput.value !== '' && event.key === 'Enter') {
-    builder.domInter.submitPrint($(this), attractions);
+  if (textInput.value !== '' && event.key === 'Enter' && typeCheck.checked === false) {
+    builder.domInter.attSearch($(this), attractions);
+  } else if(textInput.value !== '' && event.key === 'Enter' && typeCheck.checked === true){
+    builder.domInter.typeSearch($(this), attractions);
   }
 }); 
 
 $(".area").click(function() {
-  builder.domInter.print($(this), attractions);
+  builder.domInter.areaSearch($(this), attractions);
 });
 
 themepark.fbData.getAttr()
