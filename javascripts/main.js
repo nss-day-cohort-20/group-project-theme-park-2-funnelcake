@@ -30,13 +30,13 @@ $(".area").click(function() {
 themepark.fbData.getAttr()
     .then((attrData) => {
         attractions = attrData;
-   //     attractions.forEach(function (){
-        //     for(let i = 0; i < attractions.length; i++) {
-        //       if (attractions[i].times === undefined) {
-        //         attractions[i].times = "Open all day";
-        //       } 
-        //   }
-        // });
+       attractions.forEach(function (){
+            for(let i = 0; i < attractions.length; i++) {
+              if (attractions[i].times === undefined) {
+                attractions[i].times = ["Open all day"];
+              } 
+          }
+        });
         return themepark.fbData.getAreas();
     })
     .then((areaData) => {
@@ -76,18 +76,14 @@ themepark.fbData.getAttr()
                   if (timeVal == value) {
                     builder.domInter.atts(array);
                   }
+                  if (value === "Open all day") {
+                    builder.domInter.atts(array);
+                  }
                 });
               });
             $(".visibility").click(function(){
               builder.domInter.details($(this));
             });
-
-            });
-        });
-    });
-
-//  function timeCheck(val) {
-//   if (val === undefined) {
-//     $(".times").hide();
-//   }
-// }
+          });
+      });
+  });

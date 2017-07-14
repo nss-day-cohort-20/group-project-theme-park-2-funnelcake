@@ -31,11 +31,18 @@ domInter.print = function (area, attractions) {
   $.each(attractions, function (name, value) {
     if (currentId == value.area_id) { 
      domInter.atts(value);
-    }
+    } 
   });
      $(".visibility").click(function(){
       domInter.details($(this));
   });
+     domInter.noResults();
+};
+
+domInter.noResults = function() {
+	if ($(".side-bar") === '') {
+		alert("No attractions found");
+	}
 };
 
 domInter.atts = function (prefix) {
